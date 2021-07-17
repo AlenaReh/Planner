@@ -108,55 +108,55 @@ if (currentTime > ninePm) {
 }
 
 // Color Coding for present events
-if (currentTime = fiveAm) {
+if (currentTime === fiveAm) {
   $("#event-5am").removeClass("past future").addClass("present");
 }
-if (currentTime = sixAm) {
+if (currentTime === sixAm) {
   $("#event-6am").removeClass("past future").addClass("present");
 }
-if (currentTime = sevenAm) {
+if (currentTime === sevenAm) {
   $("#event-7am").removeClass("past future").addClass("present");
 }
-if (currentTime = eightAm) {
+if (currentTime === eightAm) {
   $("#event-8am").removeClass("past future").addClass("present");
 }
-if (currentTime = nineAm) {
+if (currentTime === nineAm) {
   $("#event-9am").removeClass("past future").addClass("present");
 }
-if (currentTime = tenAm) {
+if (currentTime === tenAm) {
   $("#event-10am").removeClass("past future").addClass("present");
 }
-if (currentTime = elevenAm) {
+if (currentTime === elevenAm) {
   $("#event-11am").removeClass("past future").addClass("present");
 }
-if (currentTime = twelveAm) {
+if (currentTime === twelveAm) {
   $("#event-12pm").removeClass("past future").addClass("present");
 }
-if (currentTime = onePm) {
+if (currentTime === onePm) {
   $("#event-1pm").removeClass("past future").addClass("present");
 }
-if (currentTime = twoPm) {
+if (currentTime === twoPm) {
   $("#event-2pm").removeClass("past future").addClass("present");
 }
-if (currentTime = threePm) {
+if (currentTime === threePm) {
   $("#event-3pm").removeClass("past future").addClass("present");
 }
-if (currentTime = fourPm) {
+if (currentTime === fourPm) {
   $("#event-4pm").removeClass("past future").addClass("present");
 }
-if (currentTime = fivePm) {
+if (currentTime === fivePm) {
   $("#event-5pm").removeClass("past future").addClass("present");
 }
-if (currentTime = sixPm) {
+if (currentTime === sixPm) {
   $("#event-6pm").removeClass("past future").addClass("present");
 }
-if (currentTime = sevenPm) {
+if (currentTime === sevenPm) {
   $("#event-7pm").removeClass("past future").addClass("present");
 }
-if (currentTime = eightPm) {
+if (currentTime === eightPm) {
   $("#event-8pm").removeClass("past future").addClass("present");
 }
-if (currentTime = ninePm) {
+if (currentTime === ninePm) {
   $("#event-9pm").removeClass("past future").addClass("present");
 }
 
