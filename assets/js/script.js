@@ -1,21 +1,13 @@
-//THEN I am presented with timeblocks for standard business hours
-//WHEN I view the timeblocks for that day
-//THEN each timeblock is color coded to indicate whether it is in the past, present, or future
-//WHEN I click into a timeblock
-//THEN I can enter an event
 //WHEN I click the save button for that timeblock
 //THEN the text for that event is saved in local storage
 //WHEN I refresh the page
 //THEN the saved events persist
-
-//Local Storage for User's input
-//Event Listeners
-//Color coding past, present, future events
-
+//desription cannot be blank if statement
 
 // reference to important DOM elements
 var timeDisplayEl = $('#time-display');
-
+var saveBtn = document.querySelector(".saveBtn");
+var getDescription = document.querySelector(".description");
 
 // handle displaying the time
 function displayTime() {
@@ -25,14 +17,6 @@ function displayTime() {
 setInterval(displayTime, 1000);
 
 //variables for linking my rows to current time
-//var startOfTheDay = moment().startOf('date').add(5, "h"); // set the start of the day for 5 am
-//console.log ("now is", startOfTheDay)
-// var fiveAm = startOfTheDay.add(0, "h");
-// fiveAm = fiveAm.format("kk:mm:ss a");
-// $("#5am").text(fiveAm);
-// console.log ("5am", fiveAm);
-
-
 var currentTime = Number.parseInt(moment().format("kk:mm"));
   //$('.hour').text(currentTime);
 var fiveAm = Number.parseInt($("#5am").text());
@@ -52,7 +36,6 @@ var sixPm = Number.parseInt($("#6pm").text());
 var sevenPm = Number.parseInt($("#7pm").text());
 var eightPm = Number.parseInt($("#8pm").text());
 var ninePm = Number.parseInt($("#9pm").text());
-
 
 // Color Coding for past events
 if (currentTime > fiveAm) {
@@ -160,7 +143,6 @@ if (currentTime === ninePm) {
   $("#event-9pm").removeClass("past future").addClass("present");
 }
 
-
 // Color Coding for future events
 if (currentTime < fiveAm) {
   $("#event-5am").removeClass("present past").addClass("future");
@@ -213,3 +195,14 @@ if (currentTime < eightPm) {
 if (currentTime < ninePm) {
   $("#event-9pm").removeClass("present past").addClass("future");
 }
+
+//Local Storage function
+function saveEventDescription (e){
+  e.preventDefault();
+  //Store
+  localStorage.setItem("getDescription", getDescription.value);
+}
+//On click event
+$('.saveBtn').on('click', saveEventDescription);
+//Retrieve
+document.querySelector(".description").innerHTML = localStorage.getItem("getDescription");
