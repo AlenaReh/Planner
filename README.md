@@ -23,6 +23,6 @@ The URL of the GitHub repository that contains the code of the application:
 ​
 ## Credits
 
-Thanks to w3schools <https://w3schools.com> and Trilogy Education Services for providing all of the necessery tools for building this application.
+Thanks to w3schools <https://w3schools.com>, icons8 <https://icons8.com/icons/set/save-button>, and Trilogy Education Services for providing all of the necessery tools for building this application.
 
 

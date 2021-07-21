@@ -15,7 +15,7 @@ textarea{
 
 .jumbotron {
   text-align: center;
-  background-color: transparent;
+  background-color: grey;
   color: black;
   border-radius: 0;
   border-bottom: 10px solid black;
@@ -63,6 +63,9 @@ textarea{
   border-bottom-right-radius: 15px;
   background-color: #06AED5;
   color: white;
+  font-size: 20px;
+  font-weight: bolder;
+  background-image: url("https://img.icons8.com/ios/100/000000/save--v1.png");
 }
 
 .saveBtn i:hover {
