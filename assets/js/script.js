@@ -7,7 +7,7 @@
 // reference to important DOM elements
 var timeDisplayEl = $('#time-display');
 var saveBtn = document.querySelector(".saveBtn");
-var getDescription = document.querySelector(".description");
+var eventDescription = document.querySelector(".description");
 
 // handle displaying the time
 function displayTime() {
@@ -19,6 +19,7 @@ setInterval(displayTime, 1000);
 //variables for linking my rows to current time
 var currentTime = Number.parseInt(moment().format("kk:mm"));
   //$('.hour').text(currentTime);
+  /*
 var fiveAm = Number.parseInt($("#5am").text());
 var sixAm = Number.parseInt($("#6am").text());
 var sevenAm = Number.parseInt($("#7am").text());
@@ -195,14 +196,46 @@ if (currentTime < eightPm) {
 if (currentTime < ninePm) {
   $("#event-9pm").removeClass("present past").addClass("future");
 }
+*/
 
 //Local Storage function
 function saveEventDescription (e){
   e.preventDefault();
+  console.log("I was clicked", e.target);
+  ////// look up .each in jQuery
+  eventDescription = $(this).siblings(".description").val();
+  var time = $(this).siblings(".hour").attr("id");
+  console.log("eventDescription", eventDescription, time);
   //Store
-  localStorage.setItem("getDescription", getDescription.value);
+  localStorage.setItem(time, eventDescription);
+  // if (getDescription === "") {
+  //   alert("Please type in the event description before you submit it");
+  // }
 }
 //On click event
 $('.saveBtn').on('click', saveEventDescription);
 //Retrieve
-document.querySelector(".description").innerHTML = localStorage.getItem("getDescription");
+// document.querySelector(".description").innerHTML = localStorage.getItem("eventDescription");
+
+//Retrieve All DAta
+
+// .each works similar for loop 
+$(".time-block").each(function(){
+  var hour = parseInt($(this).children(".hour").attr("id"));
+  console.log("time", hour, "current time", currentTime); 
+  console.log("description", localStorage.getItem(hour)); 
+  $(this).children(".description").val(localStorage.getItem(hour)); 
+
+  //Background color changed
+  if(hour < currentTime){
+    $(this).removeClass("present future");
+    $(this).addClass("past");
+  }else if ( hour === currentTime){
+    $(this).removeClass("past future");
+    $(this).addClass("present");
+
+  }else{
+    $(this).removeClass("past present");
+    $(this).addClass("future");
+  }
+})
