@@ -1,13 +1,7 @@
-//WHEN I click the save button for that timeblock
-//THEN the text for that event is saved in local storage
-//WHEN I refresh the page
-//THEN the saved events persist
-//desription cannot be blank if statement
-
 // reference to important DOM elements
 var timeDisplayEl = $('#time-display');
-var saveBtn = document.querySelector(".saveBtn");
-var eventDescription = document.querySelector(".description");
+var saveBtn = $(".saveBtn");
+var eventDescription = $(".description");
 
 // handle displaying the time
 function displayTime() {
@@ -16,9 +10,8 @@ function displayTime() {
 }
 setInterval(displayTime, 1000);
 
-//variables for linking my rows to current time
+//linking my rows to current time
 var currentTime = Number.parseInt(moment().format("kk:mm"));
-  //$('.hour').text(currentTime);
   /*
 var fiveAm = Number.parseInt($("#5am").text());
 var sixAm = Number.parseInt($("#6am").text());
@@ -208,9 +201,9 @@ function saveEventDescription (e){
   console.log("eventDescription", eventDescription, time);
   //Store
   localStorage.setItem(time, eventDescription);
-  // if (getDescription === "") {
-  //   alert("Please type in the event description before you submit it");
-  // }
+    if (eventDescription === "") {
+      alert("Please type in the event description before you submit it");
+    }
 }
 //On click event
 $('.saveBtn').on('click', saveEventDescription);
@@ -218,8 +211,7 @@ $('.saveBtn').on('click', saveEventDescription);
 // document.querySelector(".description").innerHTML = localStorage.getItem("eventDescription");
 
 //Retrieve All DAta
-
-// .each works similar for loop 
+// .each works similar to for loop 
 $(".time-block").each(function(){
   var hour = parseInt($(this).children(".hour").attr("id"));
   console.log("time", hour, "current time", currentTime); 
@@ -233,7 +225,6 @@ $(".time-block").each(function(){
   }else if ( hour === currentTime){
     $(this).removeClass("past future");
     $(this).addClass("present");
-
   }else{
     $(this).removeClass("past present");
     $(this).addClass("future");
